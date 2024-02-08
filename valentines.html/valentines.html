@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE-edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+ 
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #noButton {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img id="mainImage" src="will you be my valentine_.jfif" height="300px" class="center">
+    <div class="cat-image" style="display: none;">
+        <img src="cat-2.jpg" height="300px" class="center">
+        <img src="cat-3.jpg" height="300px" class="center">
+        <img src="cat-4.jpg" height="300px" class="center">
+        <img src="cat-5.jpg" height="300px" class="center">
+        <img src="sadcat1.jpg" height="300px" class="center">
+        <img src="sadcat2.jpg" height="300px" class="center">
+        <img src="sadcat3.jpg" height="300px" class="center">
+        <img src="sadcat4.jpg" height="300px" class="center">
+        <img src="sadcat6.jpg" height="300px" class="center">
+        <img src="angrycat1.jpg" height="300px" class="center">
+        <img src="angrycat2.jpg" height="300px" class="center">
+        
+
+
+    </div>
+    <br>
+    <p id="valentineMessage">Will you be my Valentine?</p>
+    <div class="button-group">
+       
+        <button id="yesButton" type="button" style="font-size: 50px; font-family: cursive; background-color:rgb(255,111,119); border-radius: 25px;">YES</button>
+
+        <button id="noButton" type="button" style="font-size: 50px; font-family: cursive; background-color: rgb(255,111,119); border-radius: 25px;">NO</button>
+    </div>
+    <script>
+        var mainImage = document.getElementById("mainImage");
+        var catImages = document.querySelectorAll(".cat-image img");
+        var noButton = document.getElementById("noButton");
+        var valentineMessages = [
+            "Why no? :(",
+            "Pag yes nagadla! ",
+            "please?",
+            "sige pasagdi nala ak magtuok didi",
+            "mga babae nga naman",
+            "hays eabab moments",
+            ":(",
+            "Mayda pa dida 'yes' button oh",
+            "dire mo talaga pipindoton?",
+            "sige didi nala kita forever kay hitaas man tim pride ",
+            "kayano ba kasi no? ha?!"
+        ];
+        var messageIndex = 0;
+        var catIndex = 0;
+
+        noButton.addEventListener("click", function() {
+           
+            mainImage.src = catImages[catIndex].src;
+            catIndex = (catIndex + 1) % catImages.length;
+
+         
+            var maxX = window.innerWidth - noButton.offsetWidth;
+            var maxY = window.innerHeight - noButton.offsetHeight;
+            var randomX = Math.floor(Math.random() * maxX);
+            var randomY = Math.floor(Math.random() * maxY);
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
+
+           
+            document.getElementById("valentineMessage").textContent = valentineMessages[messageIndex];
+            messageIndex = (messageIndex + 1) % valentineMessages.length;
+        });
+        var yesButton = document.getElementById("yesButton");
+        yesButton.addEventListener("click", function(){
+            yesButton.textContent = "Yehey"
+        });
+        var yesButton = document.getElementById("yesButton");
+        yesButton.addEventListener("click", function() {
+            window.location.href = "yes.html"; // Change "page2.html" to the URL of the page you want to redirect to
+        });
+    </script>
+    <h5>From: Aldridge</h5>
+</body>
+</html>
